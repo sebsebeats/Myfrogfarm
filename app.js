@@ -65,7 +65,14 @@
   }
   function frogCard(f) {
     const color = rarityColor(f.rarity);
-    return '<button class="frog-card" data-frog="' + esc(f.id) + '" aria-label="View ' + esc(f.name) + '"><div class="frog-art" style="--frog-bg:' + color + '70"><span class="frog-illustration" aria-hidden="true">' + (f.confirmed ? '🐸' : '❔') + '</span></div><div class="frog-meta">' + pill(f.rarity,'rarity" style="--pill-bg:' + color + '55') + '<h3>' + esc(f.name) + '</h3><p>' + (f.isSecret ? 'Hidden discovery' : 'Pond ' + f.pond) + ' · ' + (f.confirmed ? 'Studio roster' : 'Planned') + '</p></div></button>';
+    const art = f.confirmed
+      ? '<img class="frog-card-img" src="./assets/frog-hero.svg" alt="" loading="lazy" style="filter:hue-rotate(' + (f.pond * 28) + 'deg) drop-shadow(0 10px 8px #19462b60)">'
+      : '<span class="frog-illustration frog-silhouette" aria-hidden="true">?</span>';
+    return '<button class="frog-card" data-frog="' + esc(f.id) + '" aria-label="View ' + esc(f.isSecret ? 'hidden frog' : f.name) + '">' +
+      '<div class="frog-art" style="--frog-bg:' + color + '70">' + art + '</div>' +
+      '<div class="frog-meta"><span class="pill rarity" style="--pill-bg:' + color + '55">' + esc(f.rarity) + '</span>' +
+      '<h3>' + esc(f.confirmed ? f.name : (f.isSecret ? '???' : 'Unrevealed Frog')) + '</h3>' +
+      '<p>' + (f.isSecret ? 'Hidden discovery' : 'Pond ' + f.pond) + ' · ' + (f.confirmed ? 'Illustrative art, Studio roster' : 'Planned, not yet revealed') + '</p></div></button>';
   }
   function frogdex() {
     return hero('Your field guide','The Frogdex.','Meet the wonderfully weird residents of My Frog Farm. Search the collection and explore every rarity tier.') +
