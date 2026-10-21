@@ -25,14 +25,34 @@
     $('#toast-region').appendChild(node);
     setTimeout(() => node.remove(), 4500);
   }
+  let featuredIndex = 0;
+  const spotlightIds = ['BlockyFrog','MushroomFrog','CrystalbackFrog','Bellfrog','Cometfrog'];
+  function featuredCard() {
+    const f = D.frogs.find(x=>x.id===spotlightIds[featuredIndex]) || D.frogs[0];
+    return '<div class="spotlight-figure"><span role="img" aria-label="Generic frog placeholder">🐸</span><small>Game model artwork coming soon</small></div>' +
+      '<div><span class="mini-label">Featured frog · Studio roster</span><h3>' + esc(f.name) + '</h3><p>' + pill(f.rarity) + ' · First available tier: Pond ' + f.pond + '</p>' +
+      '<p class="muted">A real species from our game catalogue. We will add its official model and description once its approved website artwork is ready.</p>' +
+      '<div class="spotlight-buttons"><button class="btn btn-dark" data-frog="' + esc(f.id) + '">View details ↗</button><button class="btn btn-outline" id="next-featured">Another frog ↻</button></div></div>';
+  }
   function home() {
-    return '<section class="hero"><div class="container hero-grid"><div><span class="eyebrow">A little world of big discoveries</span><h1>Hop into<br>something <em>special.</em></h1><p>Catch wonderfully weird frogs, build a cosy little farm, and discover what is hiding in every pond.</p><div class="hero-actions"><button class="btn btn-dark play-action">Play on Roblox ↗</button>' + href('game','Explore the game →','btn btn-outline') + '</div><p class="hero-note">🌱 In development · Public launch date not announced</p></div><div class="hero-art" aria-label="A cheerful frog illustration"><div class="hero-orbit"></div><span class="sparkle sparkle-one">✦</span><span class="hero-frog" role="img" aria-label="Frog">🐸</span><span class="sparkle sparkle-two">✳</span><span class="floating-note note-top">✨ Rare finds await!</span><span class="floating-note note-bottom">🌿 Your farm, your frogs</span></div></div></section>' +
-      '<div class="stats-strip"><div class="container stats-grid"><div class="stat"><strong>81</strong><span>species planned</span></div><div class="stat"><strong>11</strong><span>pond tiers planned</span></div><div class="stat"><strong>69</strong><span>species in Studio Edit</span></div><div class="stat"><strong>∞</strong><span>froggy possibilities</span></div></div></div>' +
-      section(sectionHead('The adventure','More than just catching frogs.','Every little hop brings a new discovery. There is always another frog to find, a collection to complete, or a corner of your farm to improve.') +
-      '<div class="cards"><div class="card"><div class="card-emoji">🎣</div><h3>Catch & discover</h3><p>Visit new ponds, master the catching minigame, and uncover increasingly unusual frogs.</p>' + href('frogdex','Explore the Frogdex →') + '</div><div class="card"><div class="card-emoji">🏡</div><h3>Build your farm</h3><p>Place your favourites in a growing habitat. Frogs generate Coins as they hop around.</p>' + href('game','How it works →') + '</div><div class="card"><div class="card-emoji">🍀</div><h3>Chase the rarest</h3><p>Discover how nets, favourites and planned class luck influence what you can encounter.</p>' + href('odds','Explore the odds →') + '</div></div>') +
-      section(sectionHead('Discover more','A world worth exploring.','From curious creatures to rare mutations, there is plenty to discover.') +
-      '<div class="feature-grid"><div class="feature-panel"><div class="feature-icon">🐸</div><h3>Meet the Frogdex</h3><p>Browse the growing roster, discover the rarity ladder, and see which pond each frog belongs to.</p>' + href('frogdex','Browse frogs ↗') + '</div><div class="feature-panel"><div class="feature-icon">🎯</div><h3>Understand your luck</h3><p>Explore the planned odds calculator, pond selection, class multipliers and the difference between base and effective chances.</p>' + href('odds','Odds calculator ↗') + '</div><div class="feature-panel"><div class="feature-icon">✨</div><h3>Frogs with a twist</h3><p>Mutations bring new looks and Coin bonuses. Sneak a peek at the system being developed.</p>' + href('mutations','Mutation showcase ↗') + '</div><div class="feature-panel"><div class="feature-icon">📖</div><h3>Become a pond expert</h3><p>Learn the ins and outs of catching, equipment, progression and the planned class system.</p>' + href('guides','Read the guides ↗') + '</div></div>',true) +
-      section('<div class="cta-band"><div><span class="eyebrow" style="color:#b8d9b8">Coming together, one frog at a time</span><h2>Our little pond is growing.</h2><p>Follow development updates and be ready when the game opens to everyone.</p></div><button class="btn btn-light discord-action">Join the community ↗</button></div>');
+    return '<section class="hero hero-refined"><div class="container hero-grid"><div><span class="eyebrow">Welcome to My Frog Farm</span><h1>Small ponds.<br><em>Big adventures.</em></h1>' +
+      '<p>Catch wonderfully weird frogs, grow a cosy little farm, and see what is hiding around the next lily pad.</p>' +
+      '<div class="hero-actions"><button class="btn btn-dark play-action"><span class="roblox-diamond"></span> Play on Roblox ↗</button><button class="btn btn-outline discord-action">Join our Discord ↗</button></div>' +
+      '<p class="hero-note">🌱 In development · Official game link and launch date coming later</p></div>' +
+      '<div class="hero-art"><div class="hero-orbit"></div><img class="hero-illustration" src="./assets/frog-hero.svg" alt="Original illustration of a happy green frog sitting on a lily pad"><span class="floating-note note-top">small pond,<br>big dreams!</span></div></div></section>' +
+      section(sectionHead('The adventure','Simple to start.<br>Hard to put down.','Everything you need to explore the world without cluttering your screen.') +
+      '<div class="cards"><div class="card"><div class="card-emoji">🐸</div><h3>Meet the frogs</h3><p>Explore 81 planned Frogdex slots across the entire rarity ladder.</p>' + href('frogdex','Browse the Frogdex ↗') + '</div>' +
+      '<div class="card"><div class="card-emoji">🍀</div><h3>Find your luck</h3><p>Build a pond, net, class and favourite setup in our source-aware odds lab.</p>' + href('odds','Try the calculator ↗') + '</div>' +
+      '<div class="card"><div class="card-emoji">🌱</div><h3>Grow your farm</h3><p>Catch, place and earn while you explore increasingly rare ponds.</p>' + href('game','How to play ↗') + '</div></div>',true) +
+      section('<div class="home-spotlight"><div><span class="eyebrow">Every frog has a story</span><h2>Meet this little<br>legend.</h2><p class="lede">A peek at one of our actual named species. Say hello, then browse the rest of the Frogdex.</p><p>' + href('frogdex','Explore the Frogdex →') + '</p></div>' +
+      '<div class="spotlight-display" id="featured-card">' + featuredCard() + '</div></div>') +
+      section('<div class="home-calculator"><div><span class="eyebrow">A little bit of maths</span><h2>How lucky are <em>you?</em></h2><p class="lede">Explore the planned v0.8 system with real class General Luck bands and selectable pond, net and favourite settings.</p>' +
+      '<p class="small muted">We do not show percentages until the website maths exactly matches the authoritative Roblox source and tests.</p>' +
+      href('odds','Open catch-odds calculator ↗','btn btn-dark') + '</div>' +
+      '<div class="home-calc-preview"><span class="mini-label">Your next tool · Interactive preview</span><div class="mini-preview-row"><span>Planned class General Luck</span><strong>1× – 5×</strong></div><div class="mini-preview-row"><span>Planned frog catalogue</span><strong>81 slots</strong></div><div class="mini-preview-row"><span>Effective encounter odds</span><strong>Verification required</strong></div><div class="mini-preview-row"><span>Current Roblox v0.8</span><strong>Feature flag OFF</strong></div></div></div>',true) +
+      section('<div class="cta-band"><div><span class="mini-label" style="color:#c5edac">The community</span><h2>The pond is better together.</h2><p>Project announcements, discussions and occasional sneak peeks when available. Discord is where we want our frog people to gather.</p></div>' +
+      '<button class="btn btn-light discord-action">Join our Discord ↗</button></div>' +
+      '<div class="home-last-update"><span>Latest Studio Edit report: 69 ordinary species across 9 ponds, 19 October 2026.</span>' + href('updates','Developer notes →') + '</div>');
   }
   function game() {
     return hero('The game','A little farm. A lot of frogs.','Collect a growing family of curious creatures, upgrade your world and work your way through 11 planned pond tiers.') +
@@ -170,6 +190,7 @@
   document.addEventListener('click', e=>{
     const frog = e.target.closest('[data-frog]');
     if(frog){showFrog(frog.dataset.frog);return;}
+    if(e.target.closest('#next-featured')){featuredIndex=(featuredIndex+1)%spotlightIds.length;const node=$('#featured-card');if(node)node.innerHTML=featuredCard();return;}
     if(e.target.closest('.play-action')){handleLink('roblox');return;}
     if(e.target.closest('.discord-action')){handleLink('discord');return;}
     const social=e.target.closest('[data-social]');
