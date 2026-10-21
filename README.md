@@ -1,34 +1,36 @@
-# My Frog Farm — Website v0.1
+# My Frog Farm — Public website (v0.2 visual redesign)
 
-Static, dependency-free public website prototype for **My Frog Farm**.
+Public companion site for **My Frog Farm**, developed by Seb and Sam. Static HTML/CSS/JS served from GitHub's main branch. No framework, paid services or collection of player data.
 
-## Preview locally
-Open `index.html` in a browser or run `python3 -m http.server 8000` and visit `http://localhost:8000`. No build process or paid service is required.
+## Visual direction — 21 October 2026
 
-## Pages
-- Home, The Game, Frogdex, Odds Calculator, Guides, Mutations, Updates, About.
-- Working responsive navigation, mobile menu, species search, rarity/pond filters, sort controls, frog details, calculator controls, guide navigation, FAQ accordions and official-link fallbacks.
-- 81 catalogue slots: 69 named ordinary frogs from project records, 11 unrevealed regular slots and 1 unrevealed secret. Emoji art is **placeholder**, not exported frog imagery.
-- Six approved **design-only** General Luck bands across 17 classes. The current Roblox game is not using v0.8.
+A warm forest-green and parchment design with bold, bubbly Fredoka headings, custom original pond/frog artwork, considered whitespace and varied editorial compositions instead of repetitive dashboard cards. Homepage: strong illustrated hero, Play on Roblox and Discord CTAs, explanation of catching/farming, three-step game introduction, featured specimen, receipt-style luck preview and development notice. These illustrations are website concepts, NOT Sam's game models.
 
-## Deliberate parity gate (important)
-**Exact catch percentages are NOT implemented or shown.** We lack the authoritative Roblox v0.8 server algorithm, 81 frog encounter weights, eligibility logic, net/class/favourite interaction details and golden parity fixtures. Notion's original 53-species Base Odds fields are unsynchronised/blank. The calculator updates its selection summary and known roster only, and labels everything unverified. **Do not substitute a plausible formula or fabricate numbers.**
+Supporting pages: searchable/filtered/sortable 81-slot Frogdex with specimen-ticket look; game progression and eleven-pond index; guides and class mapping; odds control interface; mutation journal; updates, roadmap, release/event/patch-note and stats status panels; developer story and FAQ. All eight routes remain supported, including responsive CSS, mobile navigation and reduced-motion handling.
 
-To enable probabilities later:
-1. Read the current Roblox Studio server source via **Roblox Studio MCP**. Export the exact v0.8 luck/encounter logic, complete 81 species weights and any relevant equipment/class/favourite constants.
-2. Build a versioned, independently runnable pure probability function and a fixture generator from the **same** server logic.
-3. Compare a broad cross-product of ponds 1–11, all net tiers, all 17 classes, favourites/none, secret eligibility and corner cases to deterministic server fixtures; assert normalisation, excluded candidates and rounding.
-4. Display calculated percentages only when the parity suite passes against a pinned source revision. Recheck after any game balance changes. Mark the live flag accurately.
+New design sources: design-v02.css; assets/brand-frog.svg; assets/pond-character.svg; assets/frog-portrait.svg.
 
-## Content status
-- 69 named ordinary species are supported by Oct 2026 project development notes; no verified art URLs, per-frog lore, odds or public launch link were available.
-- Pond 10/11 names remain unrevealed on the website rather than invented.
-- Mutation gallery uses explicitly labelled visual concepts, not Sam's real models.
-- Social and Roblox buttons deliberately show a message until **verified official URLs** are set in `data.js`.
-- No fake player counts, fabricated updates, promises of launch dates, fake signup forms or placeholder Roblox destination.
+## Run and test
 
-## Future content integration
-Replace emoji with real approved frog assets, add genuine per-frog descriptions and actual game stats, configure official social URLs, then implement and verify luck parity. This prototype intentionally uses no backend or tracking.
+Run python3 -m http.server 8000 and browse to http://localhost:8000. No build process.
 
-## Sources
-Internal My Frog Farm Notion project hub, 20–21 October 2026; Frog Catalogue (53 named species, blank Base Odds); Divine/Celestial integration reports (16 named species); v0.8 General Luck design; website feature-picker. Some Notion pages retain superseded historical wording: current decisions supersede them (ElderFrog is a direct pond catch; cave is for enchantments; mutation effects are Coin-only).
+Run node tests/verify.js to verify syntax, catalogue, route rendering, Frogdex search, file references and odds integrity. The GitHub Actions workflow runs this check on pushes. GitHub Pages deployment is tracked separately; passing the tests does not prove browser/device appearance.
+
+## Honesty about luck calculations
+
+The v0.8 engine was last reported **feature-flag OFF** in Roblox. This repo has the exact planned 17-class/six General Luck band mapping, but **not** the complete source of truth for 81 frog weights, net strength, selection eligibility, discovery/favourite/secret handling, normalization, and golden parity cases. Consequently there are **no invented per-species numeric odds**: the controls work as an interface and clearly withhold unverified percentages. Planned class multipliers are not guaranteed current-game multipliers. Mutations affect Coins, not General Luck.
+
+To complete calculations, perform a read-only Roblox Studio MCP export of the authorized canonical Luau modules and versioned weights; faithfully implement the selector with all conditions; generate server-side golden fixtures covering ponds 1–11, nets, classes, favourites, discovery and secrets; validate every frog and rounding/normalization; only then unlock and correctly label active-versus-planned probabilities.
+
+## Content limits and remaining assets
+
+The 81 planned slots contain 69 named ordinary frogs verified from Studio Edit reports, 11 future ordinary slots and one intentionally hidden secret. Studio Edit is not proof of public release. Actual frog models, environments, screenshots and videos require authorized game assets.
+
+Official Roblox, Discord, TikTok and Instagram URLs are unset in data.js because none has been provided/verified. Buttons show an explanatory message rather than navigating to fabricated links. No invented player counts, dates, event schedules, real mutations or mutation multipliers, email signup, Roblox accounts or user gallery.
+
+Next: acquire a few real game captures and frog portraits, configure official URLs, visually QA the website on real devices, and finish luck-engine parity when the server sources are available.
+
+## Grounding
+
+- [Website feature ratings and design brief](https://app.notion.com/p/400a6f9bca32813da9befe2a6d60236a)
+- [My Frog Farm project hub](https://app.notion.com/p/3e8a6f9bca32813b81ddfdeab9093480)
