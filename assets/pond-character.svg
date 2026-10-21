@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 740" fill="none" role="img" aria-labelledby="name desc"><title id="name">An illustrated frog sitting on a lily pad</title><desc id="desc">An original decorative mascot illustration for My Frog Farm, not an in-game model.</desc><defs><radialGradient id="sky" cx=".53" cy=".34" r=".65"><stop stop-color="#efdda5"/><stop offset=".54" stop-color="#d9b874"/><stop offset="1" stop-color="#a6a65e"/></radialGradient><linearGradient id="water" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#5d8864"/><stop offset="1" stop-color="#285a49"/></linearGradient><linearGradient id="frog" x1=".28" y1=".1" x2=".72" y2=".95"><stop stop-color="#bedb86"/><stop offset=".42" stop-color="#91bb65"/><stop offset="1" stop-color="#5b915d"/></linearGradient><linearGradient id="light" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fbf4d5"/><stop offset="1" stop-color="#f0cf9a"/></linearGradient><filter id="shadow" x="-50%" y="-50%" width="200%" height="220%"><feGaussianBlur stdDeviation="18"/></filter><filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="5"/></filter></defs>
+<path d="M112 159C211 44 438 27 603 113c171 89 153 332 38 476C520 744 273 706 135 553 18 423-15 304 112 159Z" fill="url(#sky)"/>
+<g opacity=".42" stroke="#fbf1c5" stroke-width="6" stroke-linecap="round"><path d="M125 370c48-11 72-9 108-2M554 237c37-8 65-4 82 5M614 365c16-6 35-4 53 3M225 137c31-9 61-6 89 8"/></g>
+<path d="M90 488q132-88 316-49 172-73 322 32v137H88Z" fill="#749369" opacity=".46"/>
+<ellipse cx="407" cy="577" rx="285" ry="99" fill="#123d35" opacity=".3" filter="url(#shadow)"/>
+<path d="M71 571c82-54 214-84 342-65 149-44 264-24 334 55-64 74-170 94-335 94-161 0-274-37-341-84Z" fill="url(#water)"/>
+<path d="M95 572c135 41 228 43 326 33 139 5 234-16 294-38" stroke="#9ab78d" stroke-width="5" opacity=".32" stroke-linecap="round"/>
+<path d="M151 597q51 16 108 4m344-7q31-7 48-14m-214 54q45-3 73-11" stroke="#b7c89c" stroke-width="5" stroke-linecap="round" opacity=".55"/>
+<path d="M194 540C269 485 459 481 588 538c-17 88-143 106-250 95-79-5-120-29-144-93Z" fill="#173f2e" opacity=".24" transform="translate(0 15)"/>
+<path d="M183 525C263 472 466 470 602 529c-16 73-136 108-258 101-90-5-137-39-161-105Z" fill="#497d49"/>
+<path d="M186 522C280 480 471 484 597 526c-18 56-144 88-259 81-77-3-123-33-152-85Z" fill="#80a862"/>
+<path d="M401 520l-36 82q100 4 176-31Z" fill="#497d49"/>
+<path d="M240 536c55-13 117-21 188-16m-144 26c65-8 127-9 179-2" stroke="#b3d183" stroke-width="8" stroke-linecap="round" opacity=".6"/>
+<g stroke="#315d41" stroke-width="10" stroke-linecap="round"><path d="M118 574q-30-114-19-169M125 561q-4-110 29-142M690 553q17-98 4-167M665 556q-9-89-42-120"/></g>
+<g fill="#95a46b"><path d="M97 456Q62 421 70 391Q110 411 105 461ZM138 467Q143 414 176 393Q180 444 138 467ZM693 427Q664 392 663 369Q705 387 699 432ZM673 474Q633 437 613 424Q616 471 673 474Z"/></g>
+<ellipse cx="411" cy="538" rx="170" ry="57" fill="#163a2d" opacity=".22"/>
+<!-- long back feet -->
+<path d="M303 469Q229 469 218 503q-5 25 49 38l60-6 26-45Z" fill="#4d8350" stroke="#366443" stroke-width="8"/>
+<path d="M506 468q76-2 87 35 6 22-48 35l-57-6-26-43Z" fill="#4d8350" stroke="#366443" stroke-width="8"/>
+<path d="M251 529l-24 11m49-7-11 17m37-16-5 19m274-19 31 13m-49-12 10 18m-38-18-1 18" stroke="#477c4d" stroke-width="12" stroke-linecap="round"/>
+<!-- rounded frog torso -->
+<path d="M307 383C278 423 279 485 313 515q36 37 101 39 73 2 115-38 38-37 6-131Z" fill="url(#frog)" stroke="#477a51" stroke-width="10"/>
+<ellipse cx="416" cy="468" rx="88" ry="78" fill="#d9e5ad" opacity=".88"/>
+<path d="M330 481q30 45 79 52m29 1q39-8 57-41" stroke="#f3edc3" stroke-width="8" stroke-linecap="round" opacity=".65"/>
+<!-- arms -->
+<path d="M315 414q-52 21-55 81 2 21 34 26 29-8 23-31l20-25ZM505 413q56 26 58 82-3 21-34 25-26-6-23-30l-17-25Z" fill="#8ab662" stroke="#477a51" stroke-width="8"/>
+<path d="M265 510l-18 10m32-12-9 17m26-15 0 17m238-16 18 12m-27-12 6 16m-24-15-3 15" stroke="#5e955c" stroke-width="10" stroke-linecap="round"/>
+<!-- large head, cheeks and eye bumps -->
+<path d="M281 262q-30-40-5-67 36-30 65 9 68-28 143 0 35-42 70-5 24 29-7 66 55 45 49 111-4 93-183 113-176-16-182-113-5-69 50-114Z" fill="url(#frog)" stroke="#47784f" stroke-width="11" stroke-linejoin="round"/>
+<ellipse cx="335" cy="232" rx="51" ry="56" fill="#b1d27d"/>
+<ellipse cx="496" cy="232" rx="51" ry="56" fill="#b1d27d"/>
+<ellipse cx="335" cy="236" rx="35" ry="42" fill="url(#light)" stroke="#5f8753" stroke-width="5"/>
+<ellipse cx="496" cy="236" rx="35" ry="42" fill="url(#light)" stroke="#5f8753" stroke-width="5"/>
+<ellipse cx="350" cy="250" rx="13" ry="22" fill="#1e4033"/><ellipse cx="482" cy="250" rx="13" ry="22" fill="#1e4033"/>
+<ellipse cx="347" cy="243" rx="5" ry="8" fill="#fff8e8"/><ellipse cx="479" cy="243" rx="5" ry="8" fill="#fff8e8"/>
+<ellipse cx="310" cy="381" rx="34" ry="18" fill="#dfa479" opacity=".65"/><ellipse cx="522" cy="381" rx="34" ry="18" fill="#dfa479" opacity=".65"/>
+<circle cx="401" cy="359" r="5" fill="#41694d"/><circle cx="430" cy="359" r="5" fill="#41694d"/>
+<path d="M383 398q35 37 70-1" stroke="#315a40" stroke-width="8" stroke-linecap="round"/>
+<path d="M304 307q16 13 30 4M491 310q15 12 30-2" stroke="#c4db8e" stroke-width="7" opacity=".9" stroke-linecap="round"/>
+<path d="M290 340q-19 5-29 23m314-21q15 7 20 19" stroke="#d2e5a1" stroke-width="10" stroke-linecap="round"/>
+<!-- fireflies -->
+<g fill="#f7e8ad"><circle cx="173" cy="320" r="7"/><circle cx="633" cy="273" r="8"/><circle cx="594" cy="175" r="5"/><circle cx="220" cy="201" r="4"/></g><g fill="#f5e9b7" opacity=".4" filter="url(#soft)"><circle cx="173" cy="320" r="23"/><circle cx="633" cy="273" r="27"/></g>
+<g fill="#e9ca8d"><path d="M651 510c-1-18 21-22 24-5 19-8 27 12 12 24-12 8-33 11-36-19Z"/><path d="M163 472q-4-13 10-16 9-4 15 8 16-5 17 9-4 19-24 13-15 1-18-14Z"/></g><g stroke="#a36a49" stroke-width="6" stroke-linecap="round"><path d="M676 526v24M182 485v28"/></g>
+</svg>
