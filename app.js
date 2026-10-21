@@ -117,7 +117,7 @@
   }
   function guides() {
     return hero('The field manual','Learn the ropes.','Everything a future frog farmer needs to know about catching, equipment, classes and progression.') +
-      section('<div class="anchor-tabs"><a href="#catching-guide">Catching</a><a href="#net-guide">Nets & luck</a><a href="#class-guide">Classes</a><a href="#progression-guide">Progression</a></div>' +
+      section('<div class="anchor-tabs"><a href="#catching-guide">Catching</a><a href="#net-guide">Nets & luck</a><a href="#class-guide">Classes</a><a href="#progression-guide">Progression</a><a href="#/mutations">Mutation showcase ↗</a></div>' +
       '<div id="catching-guide">' + sectionHead('01 / Getting started','Your first catch.','Start at a pond, cast your net and complete the catching minigame. A successful catch joins your inventory and contributes to your Frogdex discoveries.') +
       '<div class="cards"><div class="card"><div class="card-emoji">🎣</div><h3>Try a pond</h3><p>Higher ponds add new rarity tiers, while lower-tier species can still be relevant.</p></div><div class="card"><div class="card-emoji">⭐</div><h3>Pick a favourite</h3><p>The designed favourite system targets one species, with free switching and a 3× encounter-weight boost where eligible.</p></div><div class="card"><div class="card-emoji">📗</div><h3>Fill the Frogdex</h3><p>Discoveries are independent of current ownership. You can catch duplicates and set frogs free.</p></div></div></div>') +
       section('<div id="net-guide">' + sectionHead('02 / Equipment','A net for every adventure.','The planned rarity ladder runs from Basic to Transcendent. Net rarity luck and class luck are distinct sources; exact effective outcomes require the server algorithm.') +
@@ -140,10 +140,22 @@
       '<div class="info-list"><div class="info-row"><span class="number">✓</span><div><h3>Coin bonuses, not catch luck</h3><p>Mutations can boost Coin generation and include distinctive visual or movement effects.</p></div></div><div class="info-row"><span class="number">✓</span><div><h3>Sam-led creative work</h3><p>Sam is developing mutation content. The final website gallery will use approved real models and data.</p></div></div><div class="info-row"><span class="number">…</span><div><h3>Exact chances pending</h3><p>Acquisition probabilities, full catalogue, appearance assets and Coin multipliers will only be published once sourced.</p></div></div></div>',true);
   }
   function updates() {
-    return hero('From our lily pad','Latest development.','A peek behind the scenes as we work towards the first public release.') +
-      section('<div class="timeline">' + D.news.map(n=>'<article class="timeline-item"><span class="mini-label">' + esc(n.date) + ' · ' + esc(n.category) + '</span><h3>' + esc(n.title) + '</h3><p>' + esc(n.detail) + '</p></article>').join('') + '</div>') +
-      section(sectionHead('On the horizon','What we are working towards.','These are project milestones, not promises of release dates.') +
-      '<div class="cards">' + D.roadmap.map(r=>'<article class="card">' + pill(r.status,'pill-muted') + '<h3 style="margin-top:15px">' + esc(r.title) + '</h3><p>' + esc(r.text) + '</p></article>').join('') + '</div>',true);
+    return hero('From our lily pad','What’s happening?','Actual development notes, planned milestones and honest launch information. No fabricated dates, event announcements or live player counts.') +
+      section(sectionHead('Developer notes','From the pond desk.','Development news is clearly separated from public Roblox patch notes.') +
+      '<div class="timeline">' + D.news.map(n=>'<article class="timeline-item"><span class="mini-label">' + esc(n.date) + ' · ' + esc(n.category) + '</span><h3>' + esc(n.title) + '</h3><p>' + esc(n.detail) + '</p></article>').join('') + '</div>') +
+      section(sectionHead('Where we are','Launch status & live stats.','Public launch depends on the whole 81-species scope, safety testing and a release decision.') +
+      '<div class="status-row"><div class="status-tile"><span class="mini-label">Launch countdown</span><strong>Not announced</strong><p>A countdown will only start when an official launch date exists.</p></div>' +
+      '<div class="status-tile"><span class="mini-label">Current players</span><strong>Not connected</strong><p>No trustworthy Roblox live player endpoint configured. We will never show invented counts.</p></div>' +
+      '<div class="status-tile"><span class="mini-label">Total game visits</span><strong>Not connected</strong><p>Real statistics will appear only once available from an authorized reliable source.</p></div></div>',true) +
+      section(sectionHead('The roadmap','What is next?','Public-facing development direction. Changes and priorities are not a release guarantee.') +
+      '<div class="cards">' + D.roadmap.map(r=>'<article class="card">' + pill(r.status,'pill-muted') + '<h3 style="margin-top:15px">' + esc(r.title) + '</h3><p>' + esc(r.text) + '</p></article>').join('') + '</div>') +
+      section(sectionHead('News & events','Nothing made up.','Announcements appear here only when we have something confirmed to share.') +
+      '<div class="updates-lower"><div class="card"><span class="card-emoji">📣</span><h3>Events & announcements</h3><p>Nothing officially scheduled or announced yet. This is where we will publish genuine dates, activities and news.</p><button class="btn btn-outline discord-action">Community updates ↗</button></div>' +
+      '<div class="card"><span class="card-emoji">📝</span><h3>Patch notes</h3><p>No public patch notes yet. Internal Studio edits are not advertised as shipped features.</p>' + href('game','Explore the game →') + '</div></div>',true) +
+      section(sectionHead('Possibly later','Extra community features.','Keep launch focused, then add these only when they make sense.') +
+      '<div class="cards"><div class="card"><span class="card-emoji">🎬</span><h3>Gameplay trailer</h3><p>Requires approved real gameplay footage; no fake video or release claims.</p></div>' +
+      '<div class="card"><span class="card-emoji">🎨</span><h3>Community gallery</h3><p>Requires upload permissions, owner approval and ongoing moderation. Not running yet.</p></div>' +
+      '<div class="card"><span class="card-emoji">✉️</span><h3>Email newsletter</h3><p>Not collecting addresses. Discord is our main community channel until a compliant mailing service is selected.</p></div></div>');
   }
   function about() {
     return hero('Our story','Made with a lot of love. 💚','My Frog Farm is an independently developed Roblox game by Seb and Sam, built around collecting frogs, growing a farm and chasing the next exciting discovery.') +
