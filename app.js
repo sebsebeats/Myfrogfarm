@@ -30,7 +30,7 @@
   function featuredCard() {
     const f = D.frogs.find(x=>x.id===spotlightIds[featuredIndex]) || D.frogs[0];
     return '<div class="spotlight-figure"><img class="spotlight-frog-img" src="./assets/frog-hero.svg" alt="" loading="lazy" style="filter:hue-rotate(' + (f.pond * 24) + 'deg) drop-shadow(0 9px 10px #20462a5a)"><small>Illustrative artwork · game render pending</small></div>' +
-      '<div><span class="mini-label">Featured frog · Studio roster</span><h3>' + esc(f.name) + '</h3><p>' + pill(f.rarity) + ' · First available tier: Pond ' + f.pond + '</p>' +
+      '<div><span class="mini-label">Featured frog · Studio roster</span><h3>' + esc(f.id) + '</h3><p>' + pill(f.rarity) + ' · First available tier: Pond ' + f.pond + '</p>' +
       '<p class="muted">A real species from our game catalogue. We will add its official model and description once its approved website artwork is ready.</p>' +
       '<div class="spotlight-buttons"><button class="btn btn-dark" data-frog="' + esc(f.id) + '">View details ↗</button><button class="btn btn-outline" id="next-featured">Another frog ↻</button></div></div>';
   }
@@ -87,7 +87,7 @@
     if (!result) return;
     let items = D.frogs.filter(f => (state.rarity === 'all' || f.rarity === state.rarity) &&
       (state.pond === 'all' || String(f.pond) === state.pond) &&
-      (f.name.toLowerCase().includes(state.search.toLowerCase()) || f.rarity.toLowerCase().includes(state.search.toLowerCase())));
+      (f.name.toLowerCase().includes(state.search.toLowerCase()) || f.id.toLowerCase().includes(state.search.toLowerCase().replace(/\s+/g,'')) || f.rarity.toLowerCase().includes(state.search.toLowerCase())));
     items = items.slice().sort((a,b) => state.order === 'name' ? a.name.localeCompare(b.name) : state.order === 'reverse' ? b.pond-a.pond || a.name.localeCompare(b.name) : a.pond-b.pond || a.name.localeCompare(b.name));
     result.innerHTML = '<p class="result-count">Showing ' + items.length + ' of ' + D.frogs.length + ' planned entries</p>' +
       (items.length ? '<div class="frog-grid">' + items.map(frogCard).join('') + '</div>' : '<div class="empty-state">No frogs match those filters. Try another search! 🐸</div>');
@@ -199,7 +199,7 @@
     const dialog = $('#frog-modal');
     dialog.innerHTML = '<button class="dialog-close" aria-label="Close details" id="close-frog">×</button>' +
       '<div class="dialog-art" aria-hidden="true">' + (f.confirmed?'<img class="modal-frog-img" src="./assets/frog-hero.svg" alt="Illustrative frog art">':'❔') + '</div>' +
-      pill(f.rarity) + '<h2 style="font-size:34px;margin:14px 0">' + esc(f.name) + '</h2>' +
+      pill(f.rarity) + '<h2 style="font-size:34px;margin:14px 0">' + esc(f.confirmed ? f.id : (f.isSecret ? '???' : 'Unrevealed Frog')) + '</h2>' +
       '<p>' + (f.isSecret?'Secret discovery; details withheld.': 'Pond ' + f.pond + ' · ' + (f.confirmed?'Named in Studio development records.':'Planned species slot, not yet revealed.')) + '</p>' +
       '<p class="small">Base odds: Not verified<br>Effective odds: Not verified<br>Visual: Placeholder illustration, not a Roblox model<br>Description: Awaiting approved lore and species details</p>' +
       '<button class="btn btn-dark" id="modal-odds">View odds setup →</button>';
