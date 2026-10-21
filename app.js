@@ -117,7 +117,7 @@
   }
   function guides() {
     return hero('The field manual','Learn the ropes.','Everything a future frog farmer needs to know about catching, equipment, classes and progression.') +
-      section('<div class="anchor-tabs"><a href="#catching-guide">Catching</a><a href="#net-guide">Nets & luck</a><a href="#class-guide">Classes</a><a href="#progression-guide">Progression</a><a href="#/mutations">Mutation showcase ↗</a></div>' +
+      section('<div class="anchor-tabs"><button type="button" data-scroll-to="catching-guide">Catching</button><button type="button" data-scroll-to="net-guide">Nets & luck</button><button type="button" data-scroll-to="class-guide">Classes</button><button type="button" data-scroll-to="progression-guide">Progression</button><a href="#/mutations">Mutation showcase ↗</a></div>' +
       '<div id="catching-guide">' + sectionHead('01 / Getting started','Your first catch.','Start at a pond, cast your net and complete the catching minigame. A successful catch joins your inventory and contributes to your Frogdex discoveries.') +
       '<div class="cards"><div class="card"><div class="card-emoji">🎣</div><h3>Try a pond</h3><p>Higher ponds add new rarity tiers, while lower-tier species can still be relevant.</p></div><div class="card"><div class="card-emoji">⭐</div><h3>Pick a favourite</h3><p>The designed favourite system targets one species, with free switching and a 3× encounter-weight boost where eligible.</p></div><div class="card"><div class="card-emoji">📗</div><h3>Fill the Frogdex</h3><p>Discoveries are independent of current ownership. You can catch duplicates and set frogs free.</p></div></div></div>') +
       section('<div id="net-guide">' + sectionHead('02 / Equipment','A net for every adventure.','The planned rarity ladder runs from Basic to Transcendent. Net rarity luck and class luck are distinct sources; exact effective outcomes require the server algorithm.') +
@@ -202,6 +202,8 @@
   document.addEventListener('click', e=>{
     const frog = e.target.closest('[data-frog]');
     if(frog){showFrog(frog.dataset.frog);return;}
+    const scrollControl=e.target.closest('[data-scroll-to]');
+    if(scrollControl){ const target=document.getElementById(scrollControl.dataset.scrollTo); if(target && target.scrollIntoView) target.scrollIntoView({behavior:'smooth',block:'start'}); return; }
     if(e.target.closest('#next-featured')){featuredIndex=(featuredIndex+1)%spotlightIds.length;const node=$('#featured-card');if(node)node.innerHTML=featuredCard();return;}
     if(e.target.closest('.play-action')){handleLink('roblox');return;}
     if(e.target.closest('.discord-action')){handleLink('discord');return;}
