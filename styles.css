@@ -5,3 +5,75 @@
 @media(max-width:960px){.desktop-nav{display:none}.menu-toggle{display:block}.hero-grid{grid-template-columns:1fr 1fr;gap:12px}.hero-art{min-height:360px}.frog-grid{grid-template-columns:repeat(3,1fr)}.calculator{grid-template-columns:1fr}.control-panel{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 20px}.control-panel h3{grid-column:1/-1}.steps{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:670px){.container{width:calc(100% - 34px)}.nav-shell{height:72px}.header-actions .social-action{display:none}.header-actions .play-action{display:none}.hero{padding:57px 0 65px}.hero-grid{grid-template-columns:1fr}.hero h1{font-size:clamp(3.5rem,15vw,5rem)}.hero p{font-size:16px}.hero-art{min-height:300px}.hero-frog{font-size:170px}.hero-orbit{inset:9% 18%}.floating-note{font-size:12px}.note-top{right:5%;top:8%}.note-bottom{left:4%;bottom:10%}.stats-grid{grid-template-columns:repeat(2,1fr);gap:20px}.stat:nth-child(2){border:0}.stat strong{font-size:29px}.section{padding:64px 0}.cards,.feature-grid,.two-column,.mutant-grid{grid-template-columns:1fr}.feature-panel{min-height:270px;padding:28px}.frog-grid{grid-template-columns:repeat(2,1fr);gap:12px}.frog-art{height:120px}.frog-illustration{font-size:62px}.frog-meta{padding:13px}.frog-meta h3{font-size:16px;overflow-wrap:anywhere}.frog-meta p{font-size:11px}.cta-band{border-radius:24px;padding:34px;display:block}.cta-band .btn{margin-top:20px}.page-hero{padding:52px 0 30px}.control-panel{display:block}.metric-grid{grid-template-columns:1fr}.footer-top{display:block}.footer-top p{margin:15px 0}.footer-bottom{display:block}.footer-bottom span{display:block;margin:7px 0}.steps{grid-template-columns:1fr 1fr}.step{padding:17px}.result-panel{padding:18px}.section-head{margin-bottom:28px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+
+/* V0.1 refinement — airier homepage, proper illustrations and gentle green accents */
+:root{--deep:#173f2e;--green:#447c46;--cream:#fcfaf4;--soft:#edf3e5}
+.hero-refined{padding:55px 0 65px;background:radial-gradient(ellipse at 81% 42%,#e7f2d7 0,transparent 53%)}
+.hero-refined .hero-grid{grid-template-columns:1fr 1.04fr;gap:32px}
+.hero-refined h1{font-size:clamp(3.7rem,6vw,6rem)}
+.hero-refined .hero-art{min-height:475px}
+.hero-refined .hero-orbit{inset:5%;background:#edf4e5;box-shadow:none}
+.hero-illustration{position:relative;z-index:2;display:block;width:min(100%,595px);height:auto;filter:drop-shadow(0 12px 12px #355e3824)}
+.hero-refined .floating-note{z-index:4;background:#fffdf5;font-size:16px;border:1px solid #e0ebd4}
+.hero-refined .hero-actions{margin-top:29px}
+.hero-refined .hero-note{margin:20px 0 0}
+.section-head h2 em,.home-calculator h2 em{font-style:normal;color:var(--green)}
+.home-spotlight{display:grid;grid-template-columns:.76fr 1.24fr;align-items:center;gap:52px}
+.home-spotlight .lede{max-width:420px}
+.spotlight-display{background:#e9f2df;border-radius:29px;padding:24px;display:grid;grid-template-columns:.86fr 1.14fr;gap:23px;align-items:center;min-height:310px;border:1px solid #dae8d2}
+.spotlight-figure{border-radius:23px;background:radial-gradient(circle,#d0e9bb,#a8d294);min-height:235px;display:grid;place-items:center;position:relative;overflow:hidden}
+.spotlight-figure span{font-size:110px;line-height:1;filter:drop-shadow(0 16px 12px #30552d30)}
+.spotlight-figure small{position:absolute;bottom:13px;color:#486946;font-size:10px;text-align:center;background:#ffffffa8;padding:4px 9px;border-radius:30px}
+.spotlight-display h3{font-size:clamp(1.7rem,3vw,2.6rem);margin:8px 0}
+.spotlight-display p{font-size:14px;color:#586e5b}
+.spotlight-buttons{display:flex;flex-wrap:wrap;gap:8px}
+.spotlight-buttons .btn{padding:11px 17px;font-size:13px}
+.home-calculator{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;background:linear-gradient(110deg,#e6f0d9,#f4f7ee);border:1px solid #deead3;border-radius:33px;padding:clamp(25px,5vw,62px)}
+.home-calculator h2{margin-bottom:18px}
+.home-calculator .btn{margin-top:13px}
+.home-calc-preview{background:#fffdf7;border:1px solid #d8e4d2;border-radius:24px;padding:27px;box-shadow:0 15px 35px #1b4b2f0e}
+.home-calc-preview .mini-label{margin-bottom:14px;display:block}
+.mini-preview-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:16px 0;border-bottom:1px solid #e1e8dc;font-size:14px}
+.mini-preview-row:last-child{border-bottom:none}
+.mini-preview-row strong{text-align:right;color:var(--deep);font-size:13px}
+.home-last-update{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:24px 4px 0;color:#67796c;font-size:13px}
+.community-overline{color:#c3eba4}
+.under-band{display:flex;justify-content:space-between;gap:14px}
+.site-header .header-actions .btn-dark:hover{color:#fff}
+.btn-lime{background:#c6ef93;color:var(--deep)}
+.btn-lime:hover{background:#d4f7aa}
+.preview-note{color:#71806c}
+.status-tile{background:#fffef8;border:1px solid #dfe7d9;border-radius:23px;padding:27px}
+.status-tile strong{font-family:Fredoka,sans-serif;font-size:27px;display:block;margin:5px 0}
+.status-tile p{font-size:14px;color:#67796b;margin:0}
+.status-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.updates-lower{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.updates-lower .card{min-height:220px}
+.cta-band .btn-light:hover{color:var(--deep)}
+@media(max-width:960px){
+ .hero-refined .hero-grid{grid-template-columns:1fr 1fr;gap:5px}
+ .hero-refined h1{font-size:clamp(3rem,6.5vw,4.5rem)}
+ .hero-refined .hero-art{min-height:380px}
+ .home-spotlight{gap:25px}
+ .spotlight-display{grid-template-columns:1fr}
+ .spotlight-figure{min-height:160px}
+ .spotlight-figure span{font-size:80px}
+}
+@media(max-width:670px){
+ .hero-refined{padding:29px 0 42px}
+ .hero-refined .hero-grid{grid-template-columns:1fr}
+ .hero-refined .hero-art{min-height:310px;order:-1}
+ .hero-refined .hero-art .floating-note{font-size:12px;top:9%;right:3%}
+ .hero-refined .hero-orbit{inset:9% 15%}
+ .hero-refined h1{font-size:clamp(3.25rem,12vw,5rem)}
+ .hero-illustration{max-width:390px;margin:auto}
+ .hero-refined .hero-actions{gap:10px}
+ .hero-refined .hero-actions .btn{padding:14px 16px;flex:1;font-size:13px}
+ .home-spotlight,.home-calculator{grid-template-columns:1fr;gap:28px}
+ .spotlight-display{grid-template-columns:1fr}
+ .spotlight-figure{min-height:190px}
+ .home-calculator{padding:26px 20px}
+ .home-calc-preview{padding:19px}
+ .status-row,.updates-lower{grid-template-columns:1fr}
+}
