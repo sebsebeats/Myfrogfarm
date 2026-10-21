@@ -485,3 +485,45 @@ option{background:#fffdf1;color:#263d2e}
   .pond-tier-state{grid-column:3;margin-top:0}
   .pond-tier h3{font-size:1.4rem}
 }
+
+
+/* Final section contrast pass.
+   The hand-built interior-page layouts in v02.css precede this legacy-compatible
+   theme file, so these explicit section colours prevent mixed light/dark inheritance. */
+.section.news-editorial-section{background:#f0e5cf;color:#263e2f}
+.section.roadmap-section{background:#e0d9bc;color:#243f2d}
+.section.mutation-intro-section{background:#f0e1c3;color:#264330}
+.section.mutation-gallery-section{background:#204732;color:#f3e9d1}
+.section.mutation-rule-section{background:#f0e1c3;color:#284730}
+.section.creators-section{background:#f0e5d0;color:#254333}
+.section.about-world-section{background:#31573d;color:#f8eed9}
+.section.faq-section{background:#e4dac0;color:#23402d}
+.section.about-end-section{background:#173629;color:#f3e9d1}
+.section.noticeboard-section{background:#142f24;color:#f3e9d1}
+.noticeboard-section h2,.noticeboard-item strong{color:#f3e9d1}
+.noticeboard-section .eyebrow,.noticeboard-item>span{color:#b8d88e}
+.noticeboard-item p{color:#c2d2bc}
+.about-world h2,.about-end h2{color:#f8eed9}
+.about-world .underlined-link{color:#dcebb8}
+.about-end .btn-light{background:#f5e9cd;color:#173529}
+.section.section-showcase{background:#1d3f2f;color:#f4e9cd}
+.section-showcase .eyebrow{color:#b6d88e}
+.showcase-copy h2,.showcase-copy>p{color:#f4e9cd}
+.showcase-copy .btn-outline{border-color:#bdcda3;color:#f3ead0}
+.showcase-tags span{color:#e7e8d2;border-color:#84977a}
+.section.section-odds{background:radial-gradient(ellipse at 95% 8%,#3d6746,transparent 47%),#17392b;color:#f7efd8}
+.section-odds h2,.section-odds .eyebrow{color:#f7efd8}
+.section-odds h2 em{color:#bddf92}
+.section-odds .odds-feature>div:first-child>p{color:#ceddc6}
+.section.section-community{background:#bfd1a4;color:#24422f}
+.section-community .eyebrow{color:#486944}
+.section-community .community-lockup h2,.section-community .community-note strong{color:#24422f}
+.section-community .community-lockup p,.section-community .community-note p{color:#506b4b}
+.section-community .community-note-top{color:#3b623b}
+.section-community .community-note .underlined-link{color:#264d31}
+.section-community .btn-light{background:#20452f;color:#f6ebcf;border-color:#20452f}
+.hero-editorial .btn-outline{color:#f4ebd5;border-color:#b8c8a3}
+.hero-editorial .btn-outline:hover{background:#2d563b}
+@media(max-width:670px){
+ .section.section-showcase,.section.section-odds,.section.section-community{padding-top:78px;padding-bottom:78px}
+}
