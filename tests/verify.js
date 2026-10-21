@@ -21,7 +21,7 @@ assert.equal(D.playablePubliclyConfirmed,false);
 assert.ok(D.frogs.every(x=>x.baseOdds===null && x.catchWeight===null));
 assert.ok(D.frogs.every(x=>x.artUrl===null));
 assert.ok(D.bands.reduce((sum,b)=>sum+b.classes.length,0)===17);
-assert.equal(D.frogs.filter(x=>x.pond<=7).length,53);
+assert.equal(D.frogs.filter(x=>x.pond<=7 && !x.isSecret).length,53);
 assert.equal(D.frogs.filter(x=>x.pond===8).length,8);
 assert.equal(D.frogs.filter(x=>x.pond===9).length,8);
 assert.equal(D.frogs.filter(x=>x.pond===10).length,8);
