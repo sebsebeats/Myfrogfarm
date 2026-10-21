@@ -360,3 +360,70 @@ option{background:#fffdf1;color:#263d2e}
   .metric-grid{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){.hero-illustration{animation:none!important}}
+
+
+/* SECONDARY PAGES — distinct layouts, same field-notebook system */
+.mutation-editorial{display:grid;grid-template-columns:1fr 1fr;gap:76px;align-items:center}
+.mutation-artwork{position:relative;min-height:520px;display:grid;place-items:center;background:
+  radial-gradient(ellipse at 46% 35%,#71905a 0,#456d4b 52%,#244f37 78%);
+  border-radius:47% 53% 43% 57% / 48% 46% 54% 52%;
+  border:11px solid #e3dfc2;box-shadow:0 25px 55px #1c382517}
+.mutation-artwork:before{content:"";position:absolute;inset:28px;border:1px solid #bfd29d8a;border-radius:49% 51% 51% 49%;pointer-events:none}
+.mutation-artwork img{width:66%;max-width:360px;height:auto;filter:drop-shadow(0 20px 10px #14372350)}
+.artwork-overline,.artwork-foot{position:absolute;color:#f2edcd;font:700 .7rem Fredoka,sans-serif;letter-spacing:.14em}
+.artwork-overline{top:35px;left:45px}
+.artwork-foot{bottom:32px;right:38px}
+.mutation-seal{position:absolute;top:60px;right:27px;transform:rotate(9deg);border:2px dashed #f2e6b5;background:#274c39;color:#f2edcb;padding:22px 12px;text-align:center;border-radius:50%;font:700 1rem/1.03 Fredoka,sans-serif;letter-spacing:.04em}
+.mutation-copy h2{font-size:clamp(3rem,6vw,6.2rem);margin-bottom:25px}
+.mutation-copy h2 em{font-style:normal;color:#547d4d}
+.mutation-copy>p{font-size:1.09rem;color:#506452;line-height:1.7;margin-bottom:30px}
+.mutation-facts{border-top:1px solid #b3bfaa}
+.mutation-facts>div{padding:16px 0;border-bottom:1px solid #b3bfaa}
+.mutation-facts strong{font:700 1.15rem Fredoka,sans-serif;color:#2c4b37}
+.mutation-facts p{color:#637360;font-size:.91rem;margin:5px 0 0}
+.update-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:85px;align-items:start}
+.update-grid h2{font-size:clamp(2.8rem,5vw,5.5rem)}
+.update-grid>div:first-child>p{font-size:1.08rem}
+.update-grid .timeline{border-top:1px solid #b4c1ae;gap:0}
+.update-grid .timeline-item{padding:25px 5px 23px 25px;border-left:0;border-bottom:1px solid #b4c1ae;position:relative}
+.update-grid .timeline-item:before{content:"";position:absolute;left:2px;top:33px;width:9px;height:9px;border-radius:50%;background:#597b53}
+.timeline-item h3{font-size:1.55rem;margin:11px 0 9px}
+.timeline-item p{margin:0;font-size:.94rem}
+.roadmap-rows{border-top:1px solid #b4c3a7}
+.roadmap-row{display:grid;grid-template-columns:115px 1fr;align-items:start;gap:45px;padding:24px 12px;border-bottom:1px solid #b4c3a7}
+.roadmap-number{font:660 3.2rem/.9 Fredoka,sans-serif;color:#7d9672;letter-spacing:-.05em}
+.roadmap-row h3{font-size:1.8rem;margin:10px 0 4px}
+.roadmap-row p{margin:0;color:#61715e}
+.notice-board{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.notice-board>div{min-height:200px;background:#fff8e7;border:1px solid #c9d2b9;padding:26px 28px}
+.notice-board h3{margin:15px 0 9px;font-size:1.65rem}
+.notice-board p{font-size:.94rem;color:#60725f;margin:0}
+.about-intro{max-width:990px;margin-bottom:72px}
+.about-intro h2{font-size:clamp(3.2rem,6vw,6.8rem);margin:0 0 25px}
+.about-intro p{max-width:730px;color:#576b57;font-size:1.15rem}
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.team-profile{background:#e3e8d4;border:1px solid #c2d0b6;padding:39px 40px 35px;min-height:335px;position:relative}
+.team-profile:nth-child(2){background:#e6ddc2;border-color:#d5c8ae}
+.team-monogram{display:inline-grid;place-items:center;background:#2e583b;color:#efe8c5;border-radius:50%;width:74px;height:74px;font:700 2.2rem Fredoka,sans-serif;transform:rotate(-8deg);margin-bottom:22px}
+.team-profile:nth-child(2) .team-monogram{background:#705c3a;transform:rotate(6deg)}
+.team-profile h3{font-size:2.8rem;margin:8px 0 13px}
+.team-profile p{font-size:1rem;color:#5f705d;max-width:380px}
+@media(max-width:900px){
+  .mutation-editorial,.update-grid{gap:38px}
+  .mutation-artwork{min-height:400px}
+  .mutation-seal{padding:16px 10px;font-size:.8rem}
+}
+@media(max-width:720px){
+  .mutation-editorial,.update-grid{grid-template-columns:1fr;gap:35px}
+  .mutation-artwork{min-height:360px;max-width:480px;margin:0 auto;width:100%}
+  .artwork-overline{left:22px;top:25px;font-size:.58rem}
+  .artwork-foot{right:15px;bottom:20px;font-size:.54rem}
+  .mutation-copy h2{font-size:clamp(3.1rem,11vw,5rem)}
+  .roadmap-row{grid-template-columns:58px 1fr;gap:18px}
+  .roadmap-number{font-size:2.3rem}
+  .roadmap-row h3{font-size:1.45rem}
+  .notice-board,.team-grid{grid-template-columns:1fr}
+  .about-intro{margin-bottom:45px}
+  .team-profile{min-height:0;padding:29px}
+  .notice-board>div{min-height:0}
+}
