@@ -77,3 +77,7 @@
  .home-calc-preview{padding:19px}
  .status-row,.updates-lower{grid-template-columns:1fr}
 }
+
+/* Jump buttons do not change the hash route. */
+.anchor-tabs button{border:1px solid #c7d7c3;border-radius:100px;padding:8px 15px;font-weight:800;font-size:13px;background:white;color:var(--ink)}
+.anchor-tabs button:hover{background:#e8f3e1}
