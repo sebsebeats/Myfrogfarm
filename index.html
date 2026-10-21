@@ -3,14 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#173a2c">
+  <meta name="theme-color" content="#1a3529">
   <meta name="description" content="My Frog Farm — catch unusual frogs, grow your farm and explore a world of discoveries. Browse the Frogdex and learn about luck.">
   <title>My Frog Farm — Catch something wonderful</title>
-  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="./assets/brand-frog.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./design-v02.css">
   <script defer src="./data.js"></script>
   <script defer src="./app.js"></script>
 </head>
@@ -18,7 +19,7 @@
   <a class="skip-link" href="#app">Skip to content</a>
   <header id="site-header" class="site-header">
     <div class="nav-shell">
-      <a class="brand" href="#/home" aria-label="My Frog Farm home"><span class="brand-mark" aria-hidden="true">🐸</span><span>my frog<br><strong>farm.</strong></span></a>
+      <a class="brand" href="#/home" aria-label="My Frog Farm home"><span class="brand-mark" aria-hidden="true"><img src="./assets/brand-frog.svg" width="48" height="48" alt=""></span><span>my frog<br><strong>farm.</strong></span></a>
       <nav class="desktop-nav" aria-label="Main navigation">
         <a href="#/home" data-nav="home">Home</a>
         <a href="#/game" data-nav="game">The game</a>
@@ -44,8 +45,8 @@
   <main id="app" tabindex="-1" aria-live="off"></main>
   <footer class="footer">
     <div class="container footer-top">
-      <a href="#/home" class="footer-logo"><span aria-hidden="true">🐸</span> my frog farm<span class="brand-dot">.</span></a>
-      <p>Small ponds. Big adventures.</p>
+      <a href="#/home" class="footer-logo"><img class="footer-frog" src="./assets/brand-frog.svg" alt="" width="44" height="44"> my frog farm<span class="brand-dot">.</span></a>
+      <p>A little pond. A lot going on.</p>
       <div class="footer-socials"><button data-social="discord" class="text-social">Discord ↗</button><button data-social="tiktok" class="text-social">TikTok ↗</button><button data-social="instagram" class="text-social">Instagram ↗</button></div>
     </div>
     <div class="container footer-bottom"><span>© <span id="current-year">2026</span> My Frog Farm · Made by Seb & Sam</span><span>Independent Roblox game · Information may change during development</span></div>
