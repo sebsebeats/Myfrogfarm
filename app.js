@@ -29,7 +29,7 @@
   const spotlightIds = ['BlockyFrog','MushroomFrog','CrystalbackFrog','Bellfrog','Cometfrog'];
   function featuredCard() {
     const f = D.frogs.find(x=>x.id===spotlightIds[featuredIndex]) || D.frogs[0];
-    return '<div class="spotlight-figure"><span role="img" aria-label="Generic frog placeholder">🐸</span><small>Game model artwork coming soon</small></div>' +
+    return '<div class="spotlight-figure"><img class="spotlight-frog-img" src="./assets/frog-hero.svg" alt="" loading="lazy" style="filter:hue-rotate(' + (f.pond * 24) + 'deg) drop-shadow(0 9px 10px #20462a5a)"><small>Illustrative artwork · game render pending</small></div>' +
       '<div><span class="mini-label">Featured frog · Studio roster</span><h3>' + esc(f.name) + '</h3><p>' + pill(f.rarity) + ' · First available tier: Pond ' + f.pond + '</p>' +
       '<p class="muted">A real species from our game catalogue. We will add its official model and description once its approved website artwork is ready.</p>' +
       '<div class="spotlight-buttons"><button class="btn btn-dark" data-frog="' + esc(f.id) + '">View details ↗</button><button class="btn btn-outline" id="next-featured">Another frog ↻</button></div></div>';
@@ -115,6 +115,27 @@
       D.rarity.filter(r=>r.pond<=pond).map(r=>'<tr><td>' + pill(r.name,'rarity" style="--pill-bg:' + r.theme + '55') + '</td><td>' + countBy(r.name) + (r.pond>9?' planned':'') + '</td><td class="locked-value">Not verified</td></tr>').join('') +
       '</tbody></table></div><p class="small" style="margin-top:16px">This eligibility overview is informational, not a replica of the server’s full candidate-selection logic. Secret encounter logic is not included.</p>';
   }
+
+  // Per-species preview is complete as a browsing table; no invented percentages.
+  // This must not be described as the verified server encounter candidate set.
+  function addFrogOddsTable() {
+    const container = $('#odds-results');
+    if (!container) return;
+    const pond = Number(state.calcPond);
+    const introduced = D.frogs.filter(f => f.confirmed && !f.isSecret && f.pond <= pond);
+    const rows = introduced.map(f => '<tr class="species-row" data-name="' + esc(f.id.toLowerCase()) + '"><td>' + esc(f.id) + '</td><td>' + esc(f.rarity) +
+      '</td><td class="locked-value">Unverified</td><td class="locked-value">Unverified</td></tr>').join('');
+    const box = document.createElement('div');
+    box.className = 'species-breakdown';
+    box.innerHTML = '<h3>All documented frog entries</h3>' +
+      '<p class="small">This is the set of named species introduced through your selected pond, not a verified encounter pool. Earlier and later rarity eligibility is subject to game-specific rules.</p>' +
+      '<label class="odds-label" for="calc-frog-search">Find a frog in this preview</label>' +
+      '<input id="calc-frog-search" class="input" type="search" placeholder="Search frogs..." autocomplete="off">' +
+      '<p class="small" id="species-count">' + introduced.length + ' documented species · no probabilities verified</p>' +
+      '<div class="table-wrap"><table class="data-table"><thead><tr><th>Species</th><th>Rarity</th><th>Base odds</th><th>Effective odds</th></tr></thead><tbody>' + rows + '</tbody></table></div>' +
+      '<p class="small">Best/worst odds, exact rarity shares and favourite-adjusted per-frog probabilities will appear only after source parity QA.</p>';
+    container.appendChild(box);
+  }
   function guides() {
     return hero('The field manual','Learn the ropes.','Everything a future frog farmer needs to know about catching, equipment, classes and progression.') +
       section('<div class="anchor-tabs"><button type="button" data-scroll-to="catching-guide">Catching</button><button type="button" data-scroll-to="net-guide">Nets & luck</button><button type="button" data-scroll-to="class-guide">Classes</button><button type="button" data-scroll-to="progression-guide">Progression</button><a href="#/mutations">Mutation showcase ↗</a></div>' +
@@ -170,7 +191,7 @@
     if (!f) return;
     const dialog = $('#frog-modal');
     dialog.innerHTML = '<button class="dialog-close" aria-label="Close details" id="close-frog">×</button>' +
-      '<div class="dialog-art" aria-hidden="true">' + (f.confirmed?'🐸':'❔') + '</div>' +
+      '<div class="dialog-art" aria-hidden="true">' + (f.confirmed?'<img class="modal-frog-img" src="./assets/frog-hero.svg" alt="Illustrative frog art">':'❔') + '</div>' +
       pill(f.rarity) + '<h2 style="font-size:34px;margin:14px 0">' + esc(f.name) + '</h2>' +
       '<p>' + (f.isSecret?'Secret discovery; details withheld.': 'Pond ' + f.pond + ' · ' + (f.confirmed?'Named in Studio development records.':'Planned species slot, not yet revealed.')) + '</p>' +
       '<p class="small">Base odds: Not verified<br>Effective odds: Not verified<br>Visual: Placeholder illustration, not a Roblox model<br>Description: Awaiting approved lore and species details</p>' +
@@ -196,10 +217,17 @@
     document.title = (route==='home'?'Catch something wonderful':route.charAt(0).toUpperCase()+route.slice(1)) + ' | My Frog Farm';
     $('#mobile-menu').hidden=true;$('#menu-toggle').setAttribute('aria-expanded','false');
     if(route==='frogdex')updateFrogdex();
-    if(route==='odds')updateOdds();
+    if(route==='odds'){updateOdds();addFrogOddsTable();}
     window.scrollTo({top:0,behavior:'instant'});
   }
   document.addEventListener('click', e=>{
+    const pageAnchor = e.target.closest('a[href^="#"]');
+    const local = pageAnchor && pageAnchor.getAttribute('href');
+    if (local && /^#(?:catching-guide|net-guide|class-guide|progression-guide)$/.test(local)) {
+      e.preventDefault();
+      document.getElementById(local.slice(1))?.scrollIntoView({behavior:'smooth',block:'start'});
+      return;
+    }
     const frog = e.target.closest('[data-frog]');
     if(frog){showFrog(frog.dataset.frog);return;}
     const scrollControl=e.target.closest('[data-scroll-to]');
@@ -213,11 +241,17 @@
     if(e.target.closest('#menu-toggle')){const menu=$('#mobile-menu');menu.hidden=!menu.hidden;$('#menu-toggle').setAttribute('aria-expanded',String(!menu.hidden));}
   });
   document.addEventListener('input', e=>{
+    if(e.target.id==='calc-frog-search'){
+      const q=e.target.value.trim().toLowerCase();
+      let count=0;
+      document.querySelectorAll('.species-row').forEach(row=>{const hit=row.dataset.name.includes(q);row.hidden=!hit;if(hit)count++;});
+      const label=$('#species-count');if(label)label.textContent=count+' matching documented species · no probabilities verified';
+    }
     if(e.target.id==='frog-search'){state.search=e.target.value;updateFrogdex();}
   });
   document.addEventListener('change',e=>{
     const map={'rarity-filter':'rarity','pond-filter':'pond','sort-filter':'order','calc-pond':'calcPond','calc-net':'calcNet','calc-class':'calcClass','calc-favourite':'calcFavourite'};
-    if(map[e.target.id]){state[map[e.target.id]]=e.target.value;if(e.target.id.startsWith('calc-'))updateOdds();else updateFrogdex();}
+    if(map[e.target.id]){state[map[e.target.id]]=e.target.value;if(e.target.id.startsWith('calc-')){updateOdds();addFrogOddsTable();}else updateFrogdex();}
   });
   $('#frog-modal').addEventListener('click',e=>{if(e.target===$('#frog-modal'))$('#frog-modal').close();});
   $('#current-year').textContent=String(new Date().getFullYear());
