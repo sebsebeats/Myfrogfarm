@@ -1,6 +1,6 @@
 # My Frog Farm — Website v0.1
 
-A responsive public companion website built with vanilla HTML, CSS and JavaScript. Visual direction: warm cream, dark forest-green accents, chunky playful headings and uncluttered premium layouts.
+A responsive public companion website built with vanilla HTML, CSS and JavaScript. Visual direction: dark moss/forest-green backgrounds, cute original frog art, warm parchment-beige collectible cards, lime Roblox and Discord accents, chunky playful headings, and uncluttered layouts.
 
 **Branch:** feature/website-v0.1-review  
 **Roblox Studio:** not modified.  
@@ -18,7 +18,7 @@ Automated smoke checks: node --test tests/site.test.cjs
 
 ## Implemented v0.1 surfaces
 
-- Light premium/playful responsive homepage: original SVG frog artwork, Roblox and Discord calls to action, featured frog rotation and odds preview.
+- Dark cozy/playful responsive homepage: original SVG frog artwork, Roblox and Discord calls to action, featured frog rotation and odds preview.
 - Browseable 81-slot Frogdex with 69 confirmed named Studio Edit species, 11 unrevealed future ordinary slots and one spoiler-safe secret slot; search, filters, sort and details.
 - Interactive odds controls for pond, net, all 17 approved class-multiplier choices and favourite frog. Per-species percentages deliberately remain unavailable.
 - Game/how-to-play, progression, 11 rarity tiers, Coins and Frogspawn.
@@ -49,3 +49,7 @@ All site frog drawings are original/generic placeholders, not Sam's canonical ga
 2. Add verified official links, approved logo, frog renders and lore copy.
 3. Collect and parity-test the canonical v0.8 source and fixtures before computing chances.
 4. Consider a review deployment only after authorisation; no live DNS or production change is part of this branch.
+
+## 21 Oct refinement — dark cute visual review
+
+The site now loads dark.css after styles.css. Dark backgrounds, warm parchment cards, lime highlight buttons, soft green glow and extra illustrated frog character are the requested default. The odds page additionally lists named frogs individually with unavailable base/effective probability columns; the list is explicitly not an authoritative eligible encounter pool. Frogdex cards use an original illustrative frog asset and concealed mystery silhouettes for future/secret entries. The Guides page in-page links now scroll correctly without confusing hash-based routing.
