@@ -300,3 +300,24 @@ h3{font-weight:600}
 @media(prefers-reduced-motion:reduce){
  *,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}
 }
+
+/* Artwork scaling and accessible search inside the per-species odds preview */
+.frog-card-img{display:block;width:85%;height:96%;max-height:165px;margin:auto;object-fit:contain;position:relative;z-index:2}
+.frog-silhouette{font-family:Fredoka,sans-serif;font-size:88px;color:#5e755d;opacity:.85;filter:drop-shadow(0 6px 0 #263d3359)}
+.spotlight-frog-img{display:block;width:95%;max-height:225px;object-fit:contain;margin:auto;position:relative;z-index:1}
+.modal-frog-img{max-width:min(280px,100%);height:auto;max-height:210px;object-fit:contain;display:block;margin:auto}
+.species-breakdown{margin-top:28px;padding-top:22px;border-top:2px dashed #b9caa7}
+.species-breakdown h3{margin-bottom:9px}
+.species-breakdown p.small{margin-bottom:12px;color:#5a7058}
+.species-breakdown .odds-label{display:block;margin-bottom:6px;color:#3e6046;font-size:13px;font-weight:800}
+.species-breakdown .input{margin-bottom:8px;background:#fff9e8;border:2px solid #cad7b6;border-radius:14px;color:#2e4835}
+.species-breakdown .data-table{font-size:13px}
+.species-breakdown .data-table td{vertical-align:top}
+.species-row[hidden]{display:none!important}
+#species-count{color:#567552;font-weight:700}
+@media(max-width:670px){
+ .frog-card-img{max-height:120px;width:98%}
+ .spotlight-frog-img{max-height:180px}
+ .species-breakdown .table-wrap{overflow-x:auto}
+ .species-breakdown .data-table{min-width:520px}
+}
