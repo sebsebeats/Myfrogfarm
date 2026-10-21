@@ -11,6 +11,7 @@ const dataCode = fs.readFileSync(path.join(root, 'data.js'), 'utf8');
 const appCode = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
 const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const css = fs.readFileSync(path.join(root, 'styles.css'), 'utf8');
+const darkCss = fs.readFileSync(path.join(root, 'dark.css'), 'utf8');
 
 function site(route) {
   const ids = ['app', 'mobile-menu', 'menu-toggle', 'frog-modal', 'current-year', 'frog-results', 'odds-results', 'toast-region'];
@@ -61,7 +62,7 @@ test('Frogdex filters actually alter rendered results', () => {
   const results = s.nodes.get('frog-results');
   assert.equal((results.innerHTML.match(/data-frog=/g) || []).length, 81);
   s.listeners.input({ target: { id: 'frog-search', value: 'Comet' } });
-  assert.match(results.innerHTML, /Comet Frog/);
+  assert.match(results.innerHTML, /Cometfrog/);
   assert.equal((results.innerHTML.match(/data-frog=/g) || []).length, 1);
 });
 test('Odds selectors respond but refuse to fabricate per-species percentages', () => {
@@ -86,7 +87,10 @@ test('Release status, roadmap, announcements and public patch-note boundaries sh
 test('Static file references and responsive CSS exist', () => {
   assert.match(html, /src="\.\/data\.js"/);
   assert.match(html, /src="\.\/app\.js"/);
+  assert.match(html, /href="\.\/dark\.css"/);
+  assert.ok(fs.existsSync(path.join(root, 'dark.css')));
   assert.match(css, /@media\(max-width:670px\)/);
+  assert.match(darkCss, /--cream:#172f24/);
   assert.ok(fs.existsSync(path.join(root,'assets','frog-hero.svg')));
   assert.ok(fs.existsSync(path.join(root,'assets','favicon.svg')));
 });
